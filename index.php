@@ -213,7 +213,7 @@ tr:hover{
 
                 <td>
 
-                    <a href="edit.php?id=<?= $movie['id']; ?>">
+                    <a href="update.php?id=<?= $movie['id']; ?>">
                         Edit
                     </a>
 
@@ -229,7 +229,7 @@ tr:hover{
                 </td>
 
             </tr>
-
+            
             <?php endforeach; ?>
 
         </table>
@@ -237,7 +237,6 @@ tr:hover{
     </div>
 
     <div class="footer">
-
         <p>
             Movie Client • Consumer of Movie API • 2026
         </p>
