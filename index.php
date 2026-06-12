@@ -36,65 +36,108 @@ $movies = $response['data'];
 
 body{
     margin:0;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
+    font-size:14px;
     background:#f4f6f9;
 }
 
 .navbar{
     background:#243b55;
     color:white;
-    padding:20px 40px;
+    padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+}
+
+.navbar h2{
+    margin:0;
+    font-size:22px;
 }
 
 .logout{
     text-decoration:none;
     color:white;
     background:red;
-    padding:10px 15px;
-    border-radius:8px;
+    padding:8px 12px;
+    border-radius:6px;
+    font-size:13px;
 }
 
 .container{
-    width:90%;
+    width:85%;
+    max-width:1200px;
     margin:auto;
 }
 
 .hero{
-    margin-top:30px;
+    margin-top:25px;
     background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    padding:20px 25px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+.hero h1{
+    margin-top:0;
+    font-size:28px;
+    color:#243b55;
+}
+
+.hero p{
+    font-size:14px;
+    color:#555;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 16px;
+    background:#243b55;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    margin-top:10px;
+    font-size:14px;
 }
 
 .cards{
-    margin-top:25px;
+    margin-top:20px;
     display:flex;
-    gap:20px;
+    gap:15px;
 }
 
 .card{
     flex:1;
     background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    padding:18px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
 .card h1{
     margin:0;
+    font-size:28px;
     color:#243b55;
 }
 
+.card p{
+    margin-top:8px;
+    font-size:14px;
+    color:#666;
+}
+
 .table-box{
-    margin-top:30px;
+    margin-top:25px;
     background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+.table-box h2{
+    margin-top:0;
+    font-size:22px;
+    color:#243b55;
 }
 
 table{
@@ -105,32 +148,53 @@ table{
 th{
     background:#243b55;
     color:white;
+    font-size:14px;
 }
 
 th,td{
-    padding:15px;
+    padding:10px 12px;
     text-align:center;
     border-bottom:1px solid #ddd;
+    font-size:14px;
 }
 
 tr:hover{
     background:#f2f2f2;
 }
 
-.btn{
+.action-btn{
     display:inline-block;
-    padding:12px 20px;
-    background:#243b55;
+    padding:5px 10px;
     color:white;
     text-decoration:none;
-    border-radius:8px;
-    margin-top:15px;
+    border-radius:5px;
+    font-size:12px;
+    transition:.3s;
+    margin:0 2px;
+}
+
+.edit-btn{
+    background:#3498db;
+}
+
+.edit-btn:hover{
+    background:#2980b9;
+}
+
+.delete-btn{
+    background:#e74c3c;
+}
+
+.delete-btn:hover{
+    background:#c0392b;
 }
 
 .footer{
-    margin-top:40px;
+    margin-top:30px;
+    margin-bottom:20px;
     text-align:center;
     color:gray;
+    font-size:13px;
 }
 
 </style>
@@ -206,26 +270,22 @@ tr:hover{
             <tr>
 
                 <td><?= $movie['id']; ?></td>
-
                 <td><?= $movie['title']; ?></td>
-
                 <td><?= $movie['year']; ?></td>
 
                 <td>
-
-                    <a href="update.php?id=<?= $movie['id']; ?>">
-                        Edit
+                    <a
+                        href="update.php?id=<?= $movie['id']; ?>"
+                        class="action-btn edit-btn">
+                        ✏ Edit
                     </a>
-
-                    |
 
                     <a
-                    href="hapus.php?id=<?= $movie['id']; ?>"
-                    onclick="return confirm('Hapus movie ini?')"
-                    >
-                        Hapus
+                        href="hapus.php?id=<?= $movie['id']; ?>"
+                        class="action-btn delete-btn"
+                        onclick="return confirm('Hapus movie ini?')">
+                        🗑 Hapus
                     </a>
-
                 </td>
 
             </tr>
