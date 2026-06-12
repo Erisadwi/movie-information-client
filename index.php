@@ -25,6 +25,20 @@ curl_close($curl);
 $response = json_decode($response,true);
 
 $movies = $response['data'];
+
+$limit = 15;
+
+$page = isset($_GET['page'])
+    ? (int)$_GET['page']
+    : 1;
+
+$total_data = count($movies);
+
+$total_page = ceil($total_data / $limit);
+
+$start = ($page - 1) * $limit;
+
+$movies = array_slice($movies, $start, $limit);
 ?>
 
 <!DOCTYPE html>
@@ -189,6 +203,31 @@ tr:hover{
     background:#c0392b;
 }
 
+.pagination{
+    margin-top:20px;
+    text-align:center;
+}
+
+.pagination a{
+    display:inline-block;
+    padding:8px 14px;
+    margin:0 3px;
+    background:#243b55;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.pagination a:hover{
+    background:#1b3870;
+}
+
+.pagination .active{
+    background:#3498db;
+}
+
 .footer{
     margin-top:30px;
     margin-bottom:20px;
@@ -293,7 +332,21 @@ tr:hover{
             <?php endforeach; ?>
 
         </table>
+        <div class="pagination">
 
+            <?php for($i=1; $i<=$total_page; $i++): ?>
+
+                <a
+                    href="?page=<?= $i; ?>"
+                    class="<?= ($page == $i) ? 'active' : ''; ?>">
+
+                    <?= $i; ?>
+
+                </a>
+
+            <?php endfor; ?>
+
+        </div>
     </div>
 
     <div class="footer">
