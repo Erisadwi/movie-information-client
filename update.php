@@ -10,6 +10,8 @@ include "config.php";
 
 $message = "";
 
+$success = false;
+
 $id = $_GET['id'] ?? '';
 
 if(!$id){
@@ -77,12 +79,11 @@ if(isset($_POST['update'])){
 
     if($hasil && isset($hasil['status'])){
 
-        if($hasil['status'] == "success"){
+    if($hasil['status'] == "success"){
 
-            header("Location: index.php");
-            exit();
+        $success = true;
 
-        }else{
+    }else{
 
             $message = $hasil['message'] ?? "Gagal mengupdate data.";
 
@@ -214,6 +215,15 @@ body{
     flex-direction:column;
 }
 
+label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:12px;
+    color:#243b55;
+    font-weight:bold;
+    font-size:14px;
+}
+
 input{
     width:100%;
     padding:12px 15px;
@@ -320,25 +330,28 @@ button:hover{
                 <h2>📝 Form Edit Movie</h2>
 
                 <form method="POST" class="movie-form">
-
+                    <label>Title</label>
                     <input
                     type="text"
                     name="title"
                     value="<?= $movie['title']; ?>"
                     required>
 
+                    <label>Genre</label>
                     <input
                     type="text"
                     name="genre"
                     value="<?= $movie['genre']; ?>"
                     required>
 
+                    <label>Year</label>
                     <input
                     type="number"
                     name="year"
                     value="<?= $movie['year']; ?>"
                     required>
 
+                    <label>Rating</label>
                     <input
                     type="number"
                     step="0.1"
@@ -366,5 +379,27 @@ button:hover{
         </div>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if($success): ?>
+
+<script>
+
+Swal.fire({
+    icon: 'success',
+    title: 'Update Berhasil',
+    text: 'Data movie berhasil diperbarui.',
+    confirmButtonColor: '#243b55',
+    confirmButtonText: 'OK',
+    allowOutsideClick: false
+}).then(function(){
+
+    window.location = "index.php";
+
+});
+
+</script>
+
+<?php endif; ?>
 </body>
 </html>

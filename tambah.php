@@ -168,6 +168,15 @@ body{
     flex-direction:column;
 }
 
+label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:12px;
+    color:#243b55;
+    font-weight:bold;
+    font-size:14px;
+}
+
 input{
     width:100%;
     padding:12px 15px;
@@ -284,30 +293,33 @@ button:hover{
             <h2>➕ Form Tambah Movie</h2>
 
             <form method="POST" class="movie-form">
-
+                <label>Title</label>
                 <input
                 type="text"
                 name="title"
-                placeholder="Judul Movie"
+                placeholder="Masukkan Judul Movie"
                 required>
 
+                <label>Genre</label>
                 <input
                 type="text"
                 name="genre"
-                placeholder="Genre"
+                placeholder="Masukkan Genre"
                 required>
 
+                <label>Year</label>
                 <input
                 type="number"
                 name="year"
-                placeholder="Tahun"
+                placeholder="Masukkan Tahun"
                 required>
 
+                <label>Rating</label>
                 <input
                 type="number"
                 step="0.1"
                 name="rating"
-                placeholder="Rating"
+                placeholder="Masukkan Rating"
                 required>
 
 
