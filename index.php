@@ -32,9 +32,9 @@ $page = isset($_GET['page'])
     ? (int)$_GET['page']
     : 1;
 
-$total_data = count($movies);
+$total_movie = count($movies);
 
-$total_page = ceil($total_data / $limit);
+$total_page = ceil($total_movie / $limit);
 
 $start = ($page - 1) * $limit;
 
@@ -274,7 +274,7 @@ tr:hover{
     <div class="cards">
 
         <div class="card">
-            <h1><?= count($movies); ?></h1>
+            <h1><?= $total_movie; ?></h1>
             <p>Total Movie</p>
         </div>
 

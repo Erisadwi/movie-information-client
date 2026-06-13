@@ -209,15 +209,6 @@ button:hover{
     font-size:13px;
 }
 
-.back{
-    display:inline-block;
-    margin-top:20px;
-    color:#6945d8;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:13px;
-}
-
 .footer{
     margin-top:30px;
     margin-bottom:20px;
@@ -329,10 +320,6 @@ button:hover{
                     <div class="msg">
                         <?= $message ?>
                     </div>
-
-                    <a href="index.php" class="back">
-                        ← Kembali ke Dashboard
-                    </a>
 
                 </div>
 
