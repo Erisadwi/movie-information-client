@@ -80,19 +80,12 @@ if(isset($_POST['update'])){
     if($hasil && isset($hasil['status'])){
 
     if($hasil['status'] == "success"){
-
         $success = true;
-
     }else{
-
             $message = $hasil['message'] ?? "Gagal mengupdate data.";
-
         }
-
     }else{
-
         $message = "Response API tidak valid:<br><pre>".$response."</pre>";
-
     }
 }
 ?>
@@ -101,180 +94,7 @@ if(isset($_POST['update'])){
 <html>
 <head>
 <title>Tambah Movie</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#f4f6f9;
-    font-size:14px;
-    min-height:100vh;
-}
-
-.main-content{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-}
-
-.navbar{
-    background:#243b55;
-    color:white;
-    padding:15px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.navbar h2{
-    font-size:22px;
-}
-
-.logout{
-    text-decoration:none;
-    color:white;
-    background:red;
-    padding:8px 12px;
-    border-radius:6px;
-    font-size:13px;
-}
-
-.container{
-    flex:1;
-    width:85%;
-    max-width:1200px;
-    margin:25px auto;
-    display:flex;
-    gap:20px;
-    align-items:stretch;
-}
-
-.info{
-    width:35%;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
-    display:flex;
-    flex-direction:column;
-}
-
-.info h1{
-    color:#243b55;
-    font-size:24px;
-    margin-bottom:20px;
-}
-
-.info p{
-    color:#666;
-    line-height:1.7;
-    font-size:14px;
-}
-
-.box-info{
-    padding:15px 0;
-    border-bottom:1px solid #e8e8e8;
-    font-size:14px;
-}
-
-.quote{
-    margin-top:20px;
-    background:#f0e8ff;
-    color:#6945d8;
-    padding:15px;
-    border-radius:10px;
-    line-height:1.6;
-    font-size:13px;
-}
-
-.form-box{
-    flex:1;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
-    display:flex;
-    flex-direction:column;
-}
-
-.form-box h2{
-    color:#243b55;
-    margin-bottom:25px;
-    font-size:22px;
-}
-
-.movie-form{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-
-label{
-    display:block;
-    margin-bottom:8px;
-    margin-top:12px;
-    color:#243b55;
-    font-weight:bold;
-    font-size:14px;
-}
-
-input{
-    width:100%;
-    padding:12px 15px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    margin-bottom:15px;
-    font-size:14px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#243b55;
-}
-
-.bottom-action{
-    margin-top:auto;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#243b55;
-    color:white;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    background:#1b3870;
-}
-
-.msg{
-    color:red;
-    margin-top:12px;
-    font-size:13px;
-}
-
-.footer{
-    margin-top:30px;
-    margin-bottom:20px;
-    text-align:center;
-    color:gray;
-    font-size:13px;
-}
-
-</style>
-
+<link rel="stylesheet" href="css/style_update.css">
 </head>
 <body>
 <div class="main-content">
