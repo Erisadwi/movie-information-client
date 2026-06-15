@@ -1,5 +1,5 @@
 <?php
 
-$base_url = "http://localhost/UTSAPI/api/";
+$base_url = "http://localhost/movie-information-api/api/";
 
 $api_key = $_SESSION['api_key'] ?? "";
