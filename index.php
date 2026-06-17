@@ -110,9 +110,9 @@ $movies = array_slice($movies, $start, $limit);
                         ✏ Edit
                     </a>
                     <a
-                        href="hapus.php?id=<?= $movie['id']; ?>"
+                        href="#"
                         class="action-btn delete-btn"
-                        onclick="return confirm('Hapus movie ini?')">
+                        onclick="openDeleteModal(<?= $movie['id']; ?>)">
                         🗑 Hapus
                     </a>
                 </td>
@@ -139,5 +139,37 @@ $movies = array_slice($movies, $start, $limit);
         </p>
     </div>
 </div>
+<div class="modal" id="deleteModal">
+    <div class="modal-content">
+        <h2>🗑 Hapus Movie</h2>
+
+        <p>
+            Apakah Anda yakin ingin menghapus movie ini?
+        </p>
+
+        <div class="modal-button">
+            <button class="cancel-btn"
+                    onclick="closeDeleteModal()">
+                Batal
+            </button>
+
+            <a href="" id="deleteLink"
+               class="confirm-btn">
+                Hapus
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+function openDeleteModal(id){
+    document.getElementById("deleteModal").style.display = "flex";
+    document.getElementById("deleteLink").href =
+        "hapus.php?id=" + id;
+}
+
+function closeDeleteModal(){
+    document.getElementById("deleteModal").style.display = "none";
+}
+</script>
 </body>
 </html>

@@ -31,20 +31,63 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 $hasil = json_decode($response, true);
-
-if($hasil && $hasil['status'] == "success"){
-
-    header("Location: index.php");
-    exit();
-
-}else{
-
-    echo "
-    <script>
-        alert('Gagal menghapus movie');
-        window.location='index.php';
-    </script>
-    ";
-
-}
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hapus Movie</title>
+
+    <link rel="stylesheet" href="css/style_update.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .swal2-popup{
+            font-family: inherit !important;
+        }
+    </style>
+</head>
+<body>
+
+<?php if($hasil && $hasil['status'] == "success"): ?>
+
+<script>
+
+Swal.fire({
+    icon: 'success',
+    title: 'Hapus Berhasil',
+    text: 'Data movie berhasil dihapus.',
+    confirmButtonColor: '#243b55',
+    confirmButtonText: 'OK',
+    allowOutsideClick: false
+}).then(function(){
+
+    window.location = "index.php";
+
+});
+
+</script>
+
+<?php else: ?>
+
+<script>
+
+Swal.fire({
+    icon: 'error',
+    title: 'Hapus Gagal',
+    text: 'Data movie gagal dihapus.',
+    confirmButtonColor: '#243b55',
+    confirmButtonText: 'OK'
+}).then(function(){
+
+    window.location = "index.php";
+
+});
+
+</script>
+
+<?php endif; ?>
+
+</body>
+</html>

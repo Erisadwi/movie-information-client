@@ -9,6 +9,7 @@ if(!isset($_SESSION['login'])){
 include "config.php";
 
 $message = "";
+$success = false;
 
 if(isset($_POST['simpan'])){
 
@@ -40,14 +41,14 @@ if(isset($_POST['simpan'])){
 
     if($response['status'] == "success"){
 
-        header("Location: index.php");
-        exit();
+        $success = true;
 
     }else{
 
         $message = $response['message'];
 
     }
+
 }
 ?>
 
@@ -151,5 +152,33 @@ if(isset($_POST['simpan'])){
         Movie Client • Consumer of Movie API • 2026
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+.swal2-popup{
+    font-family: inherit !important;
+}
+</style>
+
+<?php if($success): ?>
+
+<script>
+
+Swal.fire({
+    icon: 'success',
+    title: 'Tambah Berhasil',
+    text: 'Data movie berhasil ditambahkan.',
+    confirmButtonColor: '#243b55',
+    confirmButtonText: 'OK',
+    allowOutsideClick: false
+}).then(function(){
+
+    window.location = "index.php";
+
+});
+
+</script>
+
+<?php endif; ?>
 </body>
 </html>
