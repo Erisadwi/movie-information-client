@@ -35,7 +35,7 @@ if(isset($_POST['login'])){
         $_SESSION['name']=$response['name'];
         $_SESSION['api_key']=$response['api_key'];
 
-        header("Location:index.php");
+        header("Location:dashboard.php");
         exit();
 
     }else{

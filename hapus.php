@@ -11,7 +11,7 @@ include "config.php";
 $id = $_GET['id'] ?? '';
 
 if(!$id){
-    header("Location: index.php");
+    header("Location: dashboard.php");
     exit();
 }
 
@@ -63,7 +63,7 @@ Swal.fire({
     allowOutsideClick: false
 }).then(function(){
 
-    window.location = "index.php";
+    window.location = "dashboard.php";
 
 });
 
@@ -81,7 +81,7 @@ Swal.fire({
     confirmButtonText: 'OK'
 }).then(function(){
 
-    window.location = "index.php";
+    window.location = "dashboard.php";
 
 });
 

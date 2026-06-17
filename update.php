@@ -214,7 +214,7 @@ Swal.fire({
     allowOutsideClick: false
 }).then(function(){
 
-    window.location = "index.php";
+    window.location = "dashboard.php";
 
 });
 
